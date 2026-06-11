@@ -107,7 +107,7 @@ export function Inicio() {
                 <p className="text-sm text-muted-foreground py-8 text-center">Ainda sem vendas registadas</p>
               ) : (
                 <ResponsiveContainer width="100%" height={220}>
-                  <LineChart data={monthly} margin={{ top: 4, right: 8, bottom: 0, left: 0 }}>
+                  <LineChart data={monthly.slice(-12)} margin={{ top: 4, right: 8, bottom: 0, left: 0 }}>
                     <CartesianGrid strokeDasharray="3 3" stroke="hsl(var(--border))" />
                     <XAxis dataKey="month" tick={{ fontSize: 11 }} />
                     <YAxis tick={{ fontSize: 11 }} tickFormatter={(v) => `${v}€`} />

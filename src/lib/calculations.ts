@@ -67,7 +67,6 @@ export function computeMonthlyStats(products: Product[]): MonthlyStat[] {
 
   return Array.from(map.values())
     .sort((a, b) => a.sortKey.localeCompare(b.sortKey))
-    .slice(-12)
 }
 
 export function computeCategoryStats(products: Product[]): CategoryStat[] {
