@@ -4,8 +4,8 @@ import tailwindcss from '@tailwindcss/vite'
 import { VitePWA } from 'vite-plugin-pwa'
 import path from 'path'
 
-export default defineConfig({
-  base: '/FlipTrack/',
+export default defineConfig(({ command }) => ({
+  base: command === 'build' ? '/FlipTrack/' : '/',
   plugins: [
     tailwindcss(),
     react(),
@@ -44,4 +44,4 @@ export default defineConfig({
   resolve: {
     alias: { '@': path.resolve(__dirname, 'src') },
   },
-})
+}))
