@@ -1,14 +1,10 @@
 import { createClient } from '@supabase/supabase-js'
 import type { ProductRow } from '@/types'
 
-const url = import.meta.env.VITE_SUPABASE_URL as string
-const key = import.meta.env.VITE_SUPABASE_ANON_KEY as string
+const url = import.meta.env.VITE_SUPABASE_URL as string || 'https://lirymmdwezuhmybkmbii.supabase.co'
+const key = import.meta.env.VITE_SUPABASE_ANON_KEY as string || 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImxpcnltbWR3ZXp1aG15YmttYmlpIiwicm9sZSI6ImFub24iLCJpYXQiOjE3ODEwODQ2MTYsImV4cCI6MjA5NjY2MDYxNn0.lSD3VBG1q-2xJ3wxgW6RakSTJ27sp7YrqMMJtSkcFqE'
 
-if (!url || !key) {
-  console.warn('Supabase: variáveis de ambiente em falta. Configure o ficheiro .env.')
-}
-
-export const supabase = createClient(url || 'https://placeholder.supabase.co', key || 'placeholder')
+export const supabase = createClient(url, key)
 
 export type Database = {
   public: {
